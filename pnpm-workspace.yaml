@@ -1,0 +1,9 @@
+packages: []
+
+savePrefix: ""
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude: []
+minimumReleaseAgeIgnoreMissingTime: false
+minimumReleaseAgeStrict: true
+trustLockfile: false
+blockExoticSubdeps: true

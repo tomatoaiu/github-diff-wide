@@ -1,0 +1,33 @@
+/* Keep the four-column DOM and native grid coordinates. Only the two empty
+   columns collapse; right-side line numbers, comments and anchors are untouched. */
+table[data-github-diff-wide] {
+  table-layout: fixed !important;
+  width: 100%;
+}
+
+table[data-github-diff-wide] > colgroup > col:nth-child(-n + 2) {
+  width: 0 !important;
+}
+
+table[data-github-diff-wide] > colgroup > col:nth-child(3) {
+  width: var(--line-number-cell-width, 40px) !important;
+}
+
+table[data-github-diff-wide] > colgroup > col:nth-child(4) {
+  width: auto !important;
+}
+
+/* No display:none, node replacement, colspan changes, or React-owned attributes. */
+table[data-github-diff-wide]
+  > tbody
+  > tr
+  > :is(td.empty-diff-line, td.blob-num-empty, td.blob-code-empty):nth-child(
+    -n + 2
+  ),
+table[data-github-diff-wide] > tbody > tr > td[colspan="2"]:first-child,
+table[data-github-diff-wide] > tbody > tr > td.blob-num-hunk:first-child {
+  min-width: 0 !important;
+  width: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
